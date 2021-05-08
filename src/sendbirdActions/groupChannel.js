@@ -5,6 +5,7 @@ const CUSTOM_CHANNEL_TYPE = "Charis";
 export const sbCreateGroupChannelListQuery = () => {
   const sb = SendBird.getInstance();
   const groupChannelListQuery = sb.GroupChannel.createMyGroupChannelListQuery();
+  groupChannelListQuery.includeEmpty = true;
   groupChannelListQuery.customTypesFilter = [CUSTOM_CHANNEL_TYPE];
   return groupChannelListQuery;
 };
