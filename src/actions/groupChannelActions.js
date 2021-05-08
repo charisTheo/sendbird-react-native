@@ -14,6 +14,7 @@ import {
 } from './types';
 import { sbGetGroupChannelList, sbGetGroupChannel, sbLeaveGroupChannel, sbHideGroupChannel } from '../sendbirdActions';
 import SendBird from 'sendbird';
+import notifee, { AndroidImportance } from '@notifee/react-native';
 
 export const initGroupChannel = () => {
   const sb = SendBird.getInstance();
@@ -105,6 +106,33 @@ export const createGroupChannelListHandler = () => {
         channel: channel
       });
     };
+
+    channelHandler.onMessageReceived = (channel, message) => {
+      notifee.createChannel({
+        id: `${message.messageId}`,
+        name: channel.name,
+      }).then(notificationChannelId => {
+        notifee.displayNotification({
+          id: `${message.messageId}`,
+          title: 'New message has arrived!',
+          subtitle: `${channel.name} group`,
+          body: message.message,
+          android: {
+            channelId: notificationChannelId,
+            smallIcon: 'sendbird_ic_notification',
+            importance: AndroidImportance.HIGH,
+          },
+          ios: {
+            foregroundPresentationOptions: {
+              alert: true,
+              badge: true,
+              sound: true,
+            },
+          },
+        })
+      })
+    }
+
     sb.addChannelHandler('GROUP_CHANNEL_LIST_HANDLER', channelHandler);
     return;
   };

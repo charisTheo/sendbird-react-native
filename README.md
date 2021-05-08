@@ -1,6 +1,6 @@
 # Sample JavaScript React-Native Redux
 
-This React-Native chat app was built upon the Sindbird-provided [`react-native-redux-sample`](https://github.com/sendbird/SendBird-JavaScript/tree/master/react-native-redux-sample)) using the [Sendbird SDK](https://github.com/sendbird/SendBird-SDK-JavaScript).
+This React-Native chat app was built upon the Sindbird-provided ([`react-native-redux-sample`](https://github.com/sendbird/SendBird-JavaScript/tree/master/react-native-redux-sample)) using the [Sendbird SDK](https://github.com/sendbird/SendBird-SDK-JavaScript).
 
 ## Prerequisite
 
