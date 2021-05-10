@@ -21,17 +21,21 @@ This React-Native chat app was built upon the Sindbird-provided ([`react-native-
 
         npm install
 
-3. (iOS only) Pod install
+3. (Android only) Generate a debug keystore
+
+        cd /android/app/ && keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+
+4. (iOS only) Pod install
 
         cd ios
         pod install
         pod update
 
-4. (iOS only) Add library in XCode
+5. (iOS only) Add library in XCode
 
 - Open XCode and load workspace, you should load *.xcworkspace
 
-5. Run the sample. Before starting, you should launch device emulator (or actual device) to run the sample in Android. This sample is not available for real device in iOS due to Apple Development Policy. In order to run React Native sample in real device, follow [React Native official guide](https://facebook.github.io/react-native/docs/running-on-device.html) for your own setup
+6. Run the sample. Before starting, you should launch device emulator (or actual device) to run the sample in Android. This sample is not available for real device in iOS due to Apple Development Policy. In order to run React Native sample in real device, follow [React Native official guide](https://facebook.github.io/react-native/docs/running-on-device.html) for your own setup
 
         react-native run-android
         react-native run-ios
